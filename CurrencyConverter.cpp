@@ -2,8 +2,16 @@
 #include <unordered_map>
 #include <stdexcept>
 using namespace std;
+
+class CurrencyConverter {
+    private:
+        unordered_map<string, double> exchangeRates;
+    
+       
+        }
+    
 int main() {
-   
+    CurrencyConverter converter;
     string fromCurrency, toCurrency;
     double amount;
 
@@ -14,6 +22,13 @@ int main() {
     cin >> toCurrency;
     cout << "Enter amount: ";
     cin >> amount;
+
+    try {
+        double convertedAmount = converter.convert(fromCurrency, toCurrency, amount);
+        cout << fixed << amount << " " << fromCurrency << " = " << convertedAmount << " " << toCurrency << "\n";
+    } catch (const exception& e) {
+        cout << e.what() << endl;
+    }
 
     return 0;
 }
